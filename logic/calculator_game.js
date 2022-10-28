@@ -42,27 +42,18 @@ export class CalculatorGame extends Game {
   playRound(input) {
     if (this._gameOver) return;
     let result = 0;
-    console.log(this._operator);
     switch(this._operator) {
       case '+':
-        console.log('+');
         result = this._firstNumber + this._secondNumber;
-        console.log(result);
         break;
       case '-':
-        console.log('+');
         result = this._firstNumber - this._secondNumber;
-        console.log(result);
         break;
       case '*':
-        console.log('*');
         result = this._firstNumber * this._secondNumber;
-        console.log(result);
         break;
       case '/':
-        console.log('/');
         result = Math.floor(result = this._firstNumber / this._secondNumber);
-        console.log(result);
         break;
       default:
         result = 0;
@@ -81,9 +72,6 @@ export class CalculatorGame extends Game {
   }
 
   compareInput(input, result) {
-    console.log(`comparing ${input} and ${result}`);
-    console.log(typeof input);
-    console.log(typeof result)
     return result === input;
   }
 

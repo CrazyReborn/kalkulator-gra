@@ -9,7 +9,6 @@ export class GuessGame extends Game {
 
   startGame() {
     this._number = Math.floor(Math.random() * (50 - 1) + 1);
-    console.log(this._number);
   }
 
   getNumber() {
