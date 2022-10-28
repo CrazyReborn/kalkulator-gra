@@ -26,7 +26,7 @@ export class GuessGame extends Game {
       this._tries <= 0 ? this._gameOver = true : null;
       if(this._gameOver) return 'Gra skończona.';
       message = 'Zla odpowiedź. Sprobój jeszcze raz.';
-      if (this._tries < 2) {
+      if (this._tries < 3) {
         message += this._number > guess ? ' Za mało' : ' Za dużo';
       }
     }
