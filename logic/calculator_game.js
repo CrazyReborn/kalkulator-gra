@@ -70,7 +70,7 @@ export class CalculatorGame extends Game {
     const compare = this.compareInput(input, result);
     let message = '';
     if (compare) {
-      message = 'Zgadza się. Prosze do następnej gry.';
+      message = 'Zgadza się. Proszę do następnej gry.';
       this.generateNumbers();
       this._gameWon = true;
     } else {

@@ -1,15 +1,20 @@
-import { Game } from "./logic/game.js";
 import { CalculatorGame } from "./logic/calculator_game.js";
+import { GuessGame } from "./logic/guess_game.js";
 
 
 const calc = new CalculatorGame();
 calc.startNewGame();
+
+const guess = new GuessGame();
+guess.startGame();
+
+let gameOneWon = false;
+let gameTwoWon = false;
+
 const triesFiled = document.querySelector('#game-tries-one');
 triesFiled.textContent = `Próby: ${calc.getTries()}`;
 document.querySelector('#game-field-one').textContent = `${calc.printExpression()} = ?`;
-let gameOneWon = false;
-let gameTwoWon = false;
-//DOM set up
+
 document.querySelector('#game-form-one').addEventListener('submit', (e) => {
   e.preventDefault();
   const input = document.querySelector('#game-input-one').value;
@@ -21,7 +26,10 @@ document.querySelector('#game-form-one').addEventListener('submit', (e) => {
     document.querySelector('#game-form-one > input[type="submit"]').setAttribute('disabled', true);
   }
   document.querySelector('#game-field-one').textContent = `${calc.printExpression()} = ?`;
+});
+
+document.querySelector('#game-form-two').addEventListener('submit', (e) => {
+  e.preventDefault();
 
 });
-document.querySelector('#game-form-two').addEventListener('submit', (e) => e.preventDefault());
 
