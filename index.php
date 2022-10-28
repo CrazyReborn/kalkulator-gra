@@ -7,6 +7,6 @@
   <title>Document</title>
 </head>
 <body>
-  <<?php include './game.php'; ?>
+  <?php include 'game_one.php'; ?>
 </body>
 </html>
