@@ -1,7 +1,7 @@
 export class Game {
   _gameOver = false;
   _tries = 5;
-
+  _gameWon = false;
   constructor() {
   }
 
@@ -11,6 +11,10 @@ export class Game {
 
   getGameOver() {
     return this._gameOver;
+  }
+
+  getGameWon() {
+    return this._gameWon;
   }
 
 }
