@@ -5,9 +5,13 @@ import { GuessGame } from "./logic/guess_game.js";
 
 const calc = new CalculatorGame();
 calc.startNewGame();
+const gameFieldOne = document.querySelector('#game-field-one');
+gameFieldOne.textContent = `${calc.printExpression()} = ?`;
+const gameMessageOne = document.querySelector('#game-message-one');
 
 const guess = new GuessGame();
 guess.startGame();
+const gameMessageTwo = document.querySelector('#game-message-two');
 
 let gameOneWon = false;
 let gameTwoWon = false;
@@ -18,27 +22,25 @@ triesFieldOne.textContent = `Próby: ${calc.getTries()}`;
 const triesFieldTwo = document.querySelector('#game-tries-two');
 triesFieldTwo.textContent = `Próby: ${guess.getTries()}`;
 
-document.querySelector('#game-field-one').textContent = `${calc.printExpression()} = ?`;
-
 document.querySelector('#game-form-one').addEventListener('submit', (e) => {
   e.preventDefault();
   const input = document.querySelector('#game-input-one').value;
   const converedInput = Number.parseInt(input);
-  document.querySelector('#game-message-one').textContent = calc.playRound(converedInput);
+  gameMessageOne.textContent = calc.playRound(converedInput);
   triesFieldOne.textContent = `Próby: ${calc.getTries()}`;
   if (calc.getGameWon() || calc.getGameOver()) {
     gameOneWon = calc.getGameWon();
     document.querySelector('#game-form-one > input[type="submit"]').setAttribute('disabled', true);
     checkWins();
   }
-  document.querySelector('#game-field-one').textContent = `${calc.printExpression()} = ?`;
+  gameFieldOne.textContent = `${calc.printExpression()} = ?`;
 });
 
 document.querySelector('#game-form-two').addEventListener('submit', (e) => {
   e.preventDefault();
   const input = document.querySelector('#game-input-two').value;
   const converedInput = Number.parseInt(input);
-  document.querySelector('#game-message-two').textContent = guess.playRound(converedInput);
+  gameMessageTwo.textContent = guess.playRound(converedInput);
   triesFieldTwo.textContent = `Próby: ${guess.getTries()}`;
 
   if (guess.getGameWon() || guess.getGameOver()) {
@@ -47,8 +49,6 @@ document.querySelector('#game-form-two').addEventListener('submit', (e) => {
     checkWins()
   }
 });
-
-
 
 function checkWins() {
   if(gameOneWon && gameTwoWon) {

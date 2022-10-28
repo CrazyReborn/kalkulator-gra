@@ -27,7 +27,7 @@ export class GuessGame extends Game {
       if(this._gameOver) return 'Gra skończona.';
       message = 'Zla odpowiedź. Sprobój jeszcze raz.';
       if (this._tries < 2) {
-        message += this._number > guess ? 'Za mało' : 'Za dużo';
+        message += this._number > guess ? ' Za mało' : ' Za dużo';
       }
     }
     return message;

@@ -66,7 +66,7 @@ export class CalculatorGame extends Game {
     } else {
       this._tries--;
       this._tries === 0 ? this.setGameOver(true) : null;
-      this._gameOver ? message = 'Zla odpowiedź. Gra skończona.' : message = 'Zla odpowiedź. Sprobój jeszcze raz.';
+      message = this._gameOver ?'Zła odpowiedź. Gra skończona.' : 'Zła odpowiedź. Sprobój jeszcze raz.';
     }
     return message;
   }
