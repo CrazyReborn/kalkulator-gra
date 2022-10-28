@@ -61,7 +61,7 @@ export class CalculatorGame extends Game {
         break;
       case '/':
         console.log('/');
-        result = result = this._firstNumber / this._secondNumber;
+        result = Math.floor(result = this._firstNumber / this._secondNumber);
         console.log(result);
         break;
       default:
@@ -70,9 +70,8 @@ export class CalculatorGame extends Game {
     const compare = this.compareInput(input, result);
     let message = '';
     if (compare) {
-      message = 'Zgadza się. Proszę do następnej gry.';
-      this.generateNumbers();
       this._gameWon = true;
+      return 'Zgadzam się. Proszę do następnej gry.';
     } else {
       this._tries--;
       this._tries === 0 ? this.setGameOver(true) : null;

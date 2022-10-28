@@ -1,4 +1,4 @@
-import { Game } from "./game";
+import { Game } from "./game.js";
 
 export class GuessGame extends Game {
   _number;
@@ -8,7 +8,7 @@ export class GuessGame extends Game {
   }
 
   startGame() {
-    this._number = Math.floor(Math.random() * (99 - 1) + 1);
+    this._number = Math.floor(Math.random() * (50 - 1) + 1);
     console.log(this._number);
   }
 
@@ -16,17 +16,19 @@ export class GuessGame extends Game {
     return this._number;
   }
 
-  takeAGuess(guess) {
+  playRound(guess) {
+    if(this._gameOver || this._gameWon) return;
     let message = '';
     if(guess === this._number) {
       this._gameWon = true;
       message = 'Dokladnie tak.';
     } else {
-      this.tries--;
+      this._tries--;
       this._tries <= 0 ? this._gameOver = true : null;
+      if(this._gameOver) return 'Gra skończona.';
       message = 'Zla odpowiedź. Sprobój jeszcze raz.';
-      if (this._tries > 0 && this._tries < 3) {
-        this._number > guess ? 'Za mało' : 'Za dużo';
+      if (this._tries < 2) {
+        message += this._number > guess ? 'Za mało' : 'Za dużo';
       }
     }
     return message;
