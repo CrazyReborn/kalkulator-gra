@@ -53,18 +53,20 @@ document.querySelector('#game-form-two').addEventListener('submit', (e) => {
 function checkWins() {
   if(gameOneWon && gameTwoWon) {
     const canvas = document.querySelector('canvas');
-    const side = guess.getNumber();
-    drawRectangle(side, canvas);
-    const base = calc.getFirstNumber();
-    const height = calc.getSecondNumber();
-    drawTriangle(side, base, height, canvas);
+    
+    const sideOne = calc.getFirstNumber();
+    const sideTwo = calc.getSecondNumber();
+    drawRectangle(sideOne, sideTwo, canvas);
+    const base = guess.getNumber();
+    const height = guess.getNumber();
+    drawTriangle(sideOne, base, height, canvas);
   }
 }
 
-function drawRectangle(side, canvas) {
+function drawRectangle(sideOne, sideTwo, canvas) {
   const ctx = canvas.getContext('2d');
   ctx.beginPath();
-  ctx.rect(10, 10, side, side);
+  ctx.rect(10, 10, sideOne, sideTwo);
   ctx.stroke();
 }
 
