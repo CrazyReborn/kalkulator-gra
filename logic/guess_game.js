@@ -8,7 +8,7 @@ export class GuessGame extends Game {
   }
 
   startGame() {
-    this._number = Math.floor(Math.random() * (50 - 1) + 1);
+    this._number = Math.floor(Math.random() * (10 - 1) + 1);
   }
 
   getNumber() {
