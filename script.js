@@ -1,5 +1,8 @@
-const form = document.querySelector('form');
+import { Game } from "./logic/game.js";
+import { CalculatorGame } from "./logic/calculator_game.js";
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-})
+const calc = new CalculatorGame();
+calc.startNewGame();
+console.log(calc.getFirstNumber());
+console.log(calc.getSecondNumber());
+console.log(calc.getOperator())
